@@ -6,26 +6,6 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="favicon.ico">
-        <!-- Bootstrap CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Carrusel -->
-<link href="css/carousel.css" rel="stylesheet">
-
-<!-- Estilos Personalizados -->
-<link href="css/estilos.css" rel="stylesheet">
-
-        {# Cargamos la librería #}
-        {% load bootstrap4 %}
-
-        {# CSS Bootstrap #}
-        {% bootstrap_css %}
     </head>
     <body>
         <div class="page-header">
@@ -39,12 +19,5 @@
                 </div>
             </div>
         </div>
-        {# JS y jQuery Bootstrap #}
-        {% bootstrap_javascript jquery='full' %}
-        <!-- JavaScript Colocado al final del documento para que las páginas se carguen más rápido -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
     </body>
 </html>
