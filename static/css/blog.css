@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #ffffff;
+    background-color: #000000;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -10,17 +10,22 @@
     text-decoration: none;
 }
 
-
 .content {
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Ubuntu', cursive;
+h1, h2, h3 {
+    font-family: 'Lobster', cursive;
 }
 
+.page-header h4 a{
+  font-family: 'Lobster', cursive;
+  color: #ffffff;
+}
+
+
 .date {
-    color: #828282;
+    color: #828281;
 }
 
 .save {
