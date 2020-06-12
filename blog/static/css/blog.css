@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #272ada;
+    background-color: #000000;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -10,14 +10,19 @@
     text-decoration: none;
 }
 
-
 .content {
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Lobster', cursive;
 }
+
+.page-header h4 a{
+  font-family: 'Lobster', cursive;
+  color: #ffffff;
+}
+
 
 .date {
     color: #828281;

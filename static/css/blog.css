@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #272ada;
+    background-color: #ffffff;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -16,7 +16,7 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Ubuntu', cursive;
 }
 
 .date {
