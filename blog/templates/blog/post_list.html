@@ -1,13 +1,31 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-10">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/3ezNPJJvCsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        {% for post in posts %}
+          <div class="post">
             <div class="date">
-                {{ post.published_date }}
+              {{ post.published_date }}
             </div>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="col-xs-6 col-md-2" style= "background-color:gray">
+        <a class="twitter-timeline" data-lang="es" data-width="220" data-height="400" data-theme="light" href="https://twitter.com/OpcionSonora?ref_src=twsrc%5Etfw">Tweets by OpcionSonora</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="2e9fI8z8"></script>
+
+        <div class="fb-page" data-href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" data-tabs="timeline" data-width="220" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/">Opción Sonora</a></blockquote></div>
+
+      </div>
+  </div>
+</div>
+
+
 {% endblock %}
