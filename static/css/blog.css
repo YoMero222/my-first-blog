@@ -1,7 +1,12 @@
 .page-header {
-    background-color: #1C249A;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    background-color: #243444;
+
+}
+
+.page-pies {
+    background-color: #243444;
+    color: #ffffff;
+
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -13,6 +18,8 @@
 .content {
     margin-left: 40px;
 }
+
+
 
 h1, h2, h3 {
     font-family: 'Lobster', cursive;
