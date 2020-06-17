@@ -28,8 +28,8 @@
 .content {
     margin-left: 40px;
 }
-.resposive {
-  width: 100%;
+.img-responsive{
+  max-width: 30%;
 height: auto;
 }
 
