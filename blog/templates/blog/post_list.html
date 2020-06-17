@@ -3,9 +3,12 @@
 {% block content %}
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-md-10">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/3ezNPJJvCsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+      <div class="col-xs-12 col-md-10" >
+        <h2> Ultimo video </h2>
+        <div class="youtube">
+          <iframe class="responsive-iframe" src="https://www.youtube.com/embed/3ezNPJJvCsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </div>
         {% for post in posts %}
           <div class="post">
             <div class="date">
