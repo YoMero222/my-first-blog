@@ -14,6 +14,8 @@
             <div class="date">
               {{ post.published_date }}
             </div>
+{{ post.imagen.url }}
+            <img src="{{ post.imagen.url }}"  width="50" height="50">
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
           </div>
@@ -22,10 +24,8 @@
       <div class="col-xs-6 col-md-2" style= "background-color:gray">
         <a class="twitter-timeline" data-lang="es" data-width="220" data-height="400" data-theme="light" href="https://twitter.com/OpcionSonora?ref_src=twsrc%5Etfw">Tweets by OpcionSonora</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="2e9fI8z8"></script>
-
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="2e9fI8z8"></script>
         <div class="fb-page" data-href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" data-tabs="timeline" data-width="220" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/">Opción Sonora</a></blockquote></div>
-
       </div>
   </div>
 </div>
