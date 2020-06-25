@@ -1,6 +1,8 @@
+
 {% extends 'blog/base.html' %}
 
 {% block content %}
+  {% load static %}
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-10" >
@@ -9,23 +11,73 @@
           <iframe class="responsive-iframe" src="https://www.youtube.com/embed/3ezNPJJvCsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
           </iframe>
         </div>
-        {% for post in posts %}
-          <div class="post">
-            <div class="date">
-              {{ post.published_date }}
+        <h2>Ultimas noticias</h2>
+
+        <div class="row">
+
+        {%  for post in posts %}
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="150" height="150">
+            <div class="card-body">
+              <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+              <p>{{ post.published_date }}</p>
+              <p>Por: {{ post.author }}</p>
+              <p class="card-text">{{ post.descripcion|linebreaksbr }}</p>
             </div>
-{{ post.imagen.url }}
-            <img src="{{ post.imagen.url }}"  width="50" height="50">
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+          </div>
           </div>
         {% endfor %}
+        </div>
+        <h2>Nosotros</h2>
+          <div class="card-columns"">
+            {%  for integrante in integrantes %}
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{{ integrante.imagenDePerfil.url }}"  alt="Card image cap" width="200" height="200">
+            <div class="card-body">
+              <h2>{{integrante.nombre}}</h2>
+              <h4>{{integrante.puesto}}</h4>
+              <p>Correo: <a href ="mailto:{{integrante.correo}}">{{integrante.correo}}</a></p>
+                <div class="row">
+                  <div class="col-sm-4"><a href="{{integrante.facebook}}" target="_blank"><img src="{% static "png/facebook.png" %}" alt="facebook" width="50" height="50"></a></div>
+                  <div class="col-sm-4"><a href="{{integrante.twitter}}" target="_blank"><img src="{% static "png/twitter.png" %}" alt="twitter" width="50" height="50"></a></div>
+                  <div class="col-sm-4"><a href="{{integrante.instagram}}" target="_blank"><img src="{% static "png/instagram.png" %}" alt="instagram" width="50" height="50"></a></div>
+
+
+
+
+
+
+
+                </div>
+
+              </div>
+          </div>
+          {% endfor %}
+          </div>
+
+          <h2>Galerias</h2>
+          <div class="card-columns"">
+          {%  for galeria in galerias %}
+          <div class="card" style="width: 15rem;">
+            <img class="card-img-top" src="{{ galeria.imagen.url }}"  alt="Card image cap" width="200" height="200">
+            <div class="card-body">
+              <h2>{{galeria.nombre}}</h2>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+
       </div>
       <div class="col-xs-6 col-md-2" style= "background-color:gray">
-        <a class="twitter-timeline" data-lang="es" data-width="220" data-height="400" data-theme="light" href="https://twitter.com/OpcionSonora?ref_src=twsrc%5Etfw">Tweets by OpcionSonora</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <div id="fb-root"></div>
-          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="2e9fI8z8"></script>
-        <div class="fb-page" data-href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" data-tabs="timeline" data-width="220" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/">Opción Sonora</a></blockquote></div>
+        <a class="twitter-timeline" data-lang="es" data-width="250" data-height="500" data-theme="light" href="https://twitter.com/OpcionSonora?ref_src=twsrc%5Etfw">Tweets by OpcionSonora</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="2e9fI8z8"></script>
+            <div class="fb-page" data-href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" data-tabs="timeline" data-width="250" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+              <blockquote cite="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/">Opción Sonora</a>
+              </blockquote>
+            </div>
       </div>
   </div>
 </div>
