@@ -14,16 +14,25 @@
         <h2><a href="{% url 'noticias' num=1 %}">Ultimas noticias</a></h2>
           <div class="card-columns"">
             {%  for post in posts %}
+
+
               <div class="card" style="width: 18rem;">
                 <a class="page-link" href="{% url 'post_detail' pk=post.pk %}">
                 <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
                   <div class="card-body">
                     <h2>{{ post.title }}</h2>
+
                     <p >{{ post.published_date }}</p>
                     <p >Por: {{ post.author }}</p>
                     <p >{{ post.descripcion|linebreaksbr }}</p>
                   </div>
-                </a>
+                  </a>
+                  <div class="card-footer">
+                    <meta property="og:title"   content="Sal" />
+                    <meta property="og:image"   content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+                      <p class="card-text">Compartir en:</p>
+                      <a href="http://www.facebook.com/sharer.php?u=http://oscarbustamante2.pythonanywhere.com{% url 'post_detail' pk=post.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
+                  </div>
               </div>
             {% endfor %}
           </div>
@@ -61,10 +70,10 @@
               {% endfor %}
             </div>
       </div>
-
-
-      <div class="col-xs-6 col-md-2" style= "background-color:gray">
+        <div class="col-xs-6 col-md-2" style= "background-color:gray">
+          <h2>Twitter</h2>
         <a class="twitter-timeline" data-lang="es" data-width="250" data-height="500" data-theme="light" href="https://twitter.com/OpcionSonora?ref_src=twsrc%5Etfw">Tweets by OpcionSonora</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <h2>Facebook</h2>
           <div id="fb-root"></div>
             <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="2e9fI8z8"></script>
             <div class="fb-page" data-href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/" data-tabs="timeline" data-width="250" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
@@ -72,7 +81,7 @@
                 <a href="https://www.facebook.com/Opci&#xf3;n-Sonora-103521028046280/">Opción Sonora</a>
               </blockquote>
             </div>
-      </div>
+        </div>
   </div>
 </div>
 
