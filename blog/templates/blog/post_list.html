@@ -2,66 +2,67 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  {% load static %}
+{% load static %}
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-10" >
         <h2> Ultimo video </h2>
-        <div class="youtube">
-          <iframe class="responsive-iframe" src="http://www.youtube.com/embed?listType=user_uploads&list=NoEsCulpaNuestra" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-          </iframe>
-        </div>
-        <h2><a href="{% url 'noticias' num=1 %}">Ultimas noticias</a></h2>
-        <div class="card-columns"">
-
-        {%  for post in posts %}
-
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
-            <div class="card-body">
-              <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-              <p>{{ post.published_date }}</p>
-              <p>Por: {{ post.author }}</p>
-              <p class="card-text">{{ post.descripcion|linebreaksbr }}</p>
-            </div>
+          <div class="youtube">
+            <iframe class="responsive-iframe" src="http://www.youtube.com/embed?listType=user_uploads&list=NoEsCulpaNuestra" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
           </div>
-
-        {% endfor %}
-        </div>
-        <h2>Nosotros</h2>
+        <h2><a href="{% url 'noticias' num=1 %}">Ultimas noticias</a></h2>
+          <div class="card-columns"">
+            {%  for post in posts %}
+              <div class="card" style="width: 18rem;">
+                <a class="page-link" href="{% url 'post_detail' pk=post.pk %}">
+                <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
+                  <div class="card-body">
+                    <h2>{{ post.title }}</h2>
+                    <p >{{ post.published_date }}</p>
+                    <p >Por: {{ post.author }}</p>
+                    <p >{{ post.descripcion|linebreaksbr }}</p>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        <h2><a  href="{% url 'nosotros' %}">Nosotros</a></h2>
           <div class="card-columns"">
             {%  for integrante in integrantes %}
             <div class="card" style="width: 15rem;">
               <img class="card-img-top" src="{{ integrante.imagenDePerfil.url }}"  alt="Card image cap" width="200" height="200">
-            <div class="card-body">
-              <h2>{{integrante.nombre}}</h2>
-              <h4>{{integrante.puesto}}</h4>
-              <p>Correo: <a href ="mailto:{{integrante.correo}}">{{integrante.correo}}</a></p>
+              <div class="card-body">
+                <h2>{{integrante.nombre}}</h2>
+                <h4>{{integrante.puesto}}</h4>
+                <p>Correo: <a href ="mailto:{{integrante.correo}}">{{integrante.correo}}</a></p>
                 <div class="row">
                   <div class="col-sm-4"><a href="{{integrante.facebook}}" target="_blank"><img src="{% static "png/facebook.png" %}" alt="facebook" width="50" height="50"></a></div>
                   <div class="col-sm-4"><a href="{{integrante.twitter}}" target="_blank"><img src="{% static "png/twitter.png" %}" alt="twitter" width="50" height="50"></a></div>
                   <div class="col-sm-4"><a href="{{integrante.instagram}}" target="_blank"><img src="{% static "png/instagram.png" %}" alt="instagram" width="50" height="50"></a></div>
-
                 </div>
-
               </div>
-          </div>
-          {% endfor %}
-          </div>
-
-          <h2><a href="{% url 'galerias' num=1 %}">Galerias</a></h2>
-          <div class="card-columns"">
-          {%  for galeria in galerias %}
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ galeria.imagen.url }}"  alt="Card image cap" width="180" height="180">
-            <div class="card-body">
-              <h2>{{galeria.nombre}}</h2>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
-          </div>
+            <h2><a href="{% url 'galerias' num=1 %}">Galerias</a></h2>
+            <div class="card-columns"">
+              {%  for galeria in galerias %}
 
+              <div class="card" style="width: 18rem;">
+                <a class="page-link" href="{% url 'galeria' pk=galeria.pk %}">
+                <img class="card-img-top" src="{{ galeria.imagen.url }}"  alt="Card image cap" width="180" height="180">
+                <div class="card-body">
+                  <h2>{{galeria.nombre}} </h2>
+                </div>
+                </a>
+              </div>
+
+              {% endfor %}
+            </div>
       </div>
+
+
       <div class="col-xs-6 col-md-2" style= "background-color:gray">
         <a class="twitter-timeline" data-lang="es" data-width="250" data-height="500" data-theme="light" href="https://twitter.com/OpcionSonora?ref_src=twsrc%5Etfw">Tweets by OpcionSonora</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           <div id="fb-root"></div>

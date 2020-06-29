@@ -13,10 +13,11 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:3]
     integrantes= Integrantes.objects.all
     galerias=Galeria.objects.order_by('-pk')[0:3]
-
-
-
     return render(request, 'blog/post_list.html', {"posts":posts, "integrantes":integrantes,"galerias":galerias})
+
+def nosotros(request):
+    integrantes= Integrantes.objects.all
+    return render(request, 'blog/nosotros.html',{"integrantes":integrantes})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

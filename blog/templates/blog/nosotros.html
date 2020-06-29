@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>Nosotros</h2>
+  <h3>¿Que es Opción Sonora?</h3>
+  <p>Opción Sonora es un espacio para compartir nuestro gusto por la nusica...</p>
+  <h3> Equipo</h3>
+
+  {%  for integrante in integrantes %}
+  <div class="card" style="width: 15rem;">
+    <img class="card-img-top" src="{{ integrante.imagenDePerfil.url }}"  alt="Card image cap" width="200" height="200">
+    <div class="card-body">
+      <h2>{{integrante.nombre}}</h2>
+      <h4>{{integrante.puesto}}</h4>
+      <p>Correo: <a href ="mailto:{{integrante.correo}}">{{integrante.correo}}</a></p>
+      <div class="row">
+        <div class="col-sm-4"><a href="{{integrante.facebook}}" target="_blank"><img src="{% static "png/facebook.png" %}" alt="facebook" width="50" height="50"></a></div>
+        <div class="col-sm-4"><a href="{{integrante.twitter}}" target="_blank"><img src="{% static "png/twitter.png" %}" alt="twitter" width="50" height="50"></a></div>
+        <div class="col-sm-4"><a href="{{integrante.instagram}}" target="_blank"><img src="{% static "png/instagram.png" %}" alt="instagram" width="50" height="50"></a></div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+
+{% endblock %}

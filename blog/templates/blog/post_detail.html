@@ -3,12 +3,15 @@
 
 {% block content %}
     <div class="post">
+
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
         {% endif %}
+
         <h2>{{ post.title }}</h2>
+        <img  src="{{ post.imagen.url }}"  width="780" height="380">
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
