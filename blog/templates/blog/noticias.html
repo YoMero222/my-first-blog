@@ -6,13 +6,15 @@
 <div class="card-columns"">
 {%  for post in posts %}
   <div class="card" style="width: 18rem;">
+    <a class="page-link" href="{% url 'post_detail' pk=post.pk %}">
     <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
     <div class="card-body">
-      <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+      <h2>{{ post.title }}</h2>
       <p>{{ post.published_date }}</p>
       <p>Por: {{ post.author }}</p>
       <p class="card-text">{{ post.descripcion|linebreaksbr }}</p>
     </div>
+    </a>
   </div>
 {% endfor %}
 </div>
