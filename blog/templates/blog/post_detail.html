@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block content %}
+<meta property="og:title"   content="Noticias" />
+<meta property="og:image"   content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+
+
     <div class="post">
 
         {% if post.published_date %}
@@ -11,7 +15,7 @@
         {% endif %}
 
         <h2>{{ post.title }}</h2>
-        <img  src="{{ post.imagen.url }}"  width="780" height="380">
+        <img  src="{{ post.imagen.url }}"  width="780" height="380" class="img-responsive">
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
