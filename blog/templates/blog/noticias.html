@@ -1,6 +1,15 @@
 
 {% extends 'blog/base.html' %}
 {% load static %}
+{% block header %}
+<<title>Noticias</title>
+
+<meta property="og:title"              content="Opción Sonora-Noticias" />
+<meta property="og:description"        content="Un espacio para todos los melomanos" />
+<meta property="og:image"              content="{% static "jpg/logo.jpg" %}" />
+
+{% endblock %}
+
 {% block content %}
 <h2>Noticias</h2>
 <div class="card-columns"">

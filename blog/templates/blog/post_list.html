@@ -1,5 +1,13 @@
 
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block header %}
+<title>Opción Sonora</title>
+<meta property="og:title"              content="Opción Sonora" />
+<meta property="og:description"        content="Un espacio para todos los melomanos" />
+<meta property="og:image"              content="{% static "jpg/logo.jpg" %}" />
+{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -14,14 +22,11 @@
         <h2><a href="{% url 'noticias' num=1 %}">Ultimas noticias</a></h2>
           <div class="card-columns"">
             {%  for post in posts %}
-
-
               <div class="card" style="width: 18rem;">
                 <a class="page-link" href="{% url 'post_detail' pk=post.pk %}">
                 <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
                   <div class="card-body">
                     <h2>{{ post.title }}</h2>
-
                     <p >{{ post.published_date }}</p>
                     <p >Por: {{ post.author }}</p>
                     <p >{{ post.descripcion|linebreaksbr }}</p>
@@ -65,6 +70,13 @@
                   <h2>{{galeria.nombre}} </h2>
                 </div>
                 </a>
+                <div class="card-footer">
+                    <p class="card-text">Compartir en:</p>
+                    <a href="http://www.facebook.com/sharer.php?u=http://oscarbustamante2.pythonanywhere.com{% url 'galeria' pk=galeria.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
+                    <a href="https://twitter.com/share?url=http://oscarbustamante2.pythonanywhere.com{% url 'galeria' pk=galeria.pk %}" target="_blank"><img src="{% static "png/twitterShare.png" %}" alt="twitter" width="25" height="25"></a>
+                    <a href="https://api.whatsapp.com/send?text=http://oscarbustamante2.pythonanywhere.com{% url 'galeria' pk=galeria.pk %}" target="_blank"><img src="{% static "png/whatsappShare.png" %}" alt="whatsapp" width="25" height="25"></a>
+                </div>
+
               </div>
 
               {% endfor %}

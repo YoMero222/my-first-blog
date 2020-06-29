@@ -1,8 +1,22 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% block header %}
+{%  for n in nombre %}
+<title>{{n}}</title
+  <meta property="og:title"              content="{{n}}" />
+  <meta property="og:image"              content="{{n.imagen.url}}" />
+{%endfor%}
+<meta property="og:description"        content="Un espacio para todos los melomanos" />
+{% endblock %}
+
 {% block content %}
 {%  for n in nombre %}
-<h2>{{n}}</h2>
+<h2>{{n}}
+  <a href="http://www.facebook.com/sharer.php?u=http://oscarbustamante2.pythonanywhere.com{% url 'galeria' pk=n.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
+  <a href="https://twitter.com/share?url=http://oscarbustamante2.pythonanywhere.com{% url 'galeria' pk=n.pk %}" target="_blank"><img src="{% static "png/twitterShare.png" %}" alt="twitter" width="25" height="25"></a>
+  <a href="https://api.whatsapp.com/send?text=http://oscarbustamante2.pythonanywhere.com{% url 'galeria' pk=n.pk %}" target="_blank"><img src="{% static "png/whatsappShare.png" %}" alt="whatsapp" width="25" height="25"></a>
+
+</h2>
 {%endfor%}
 
 
