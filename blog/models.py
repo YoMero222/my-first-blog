@@ -20,6 +20,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
+    def tipo(self):
+
+        return "Post"
+
 class Integrantes(models.Model):
     nombre=models.CharField(max_length=200,default="")
     puesto=models.CharField(max_length=200,default="")
@@ -40,6 +45,10 @@ class Galeria(models.Model):
 
     def __str__(self):
         return self.nombre
+
+    def tipo(self):
+        
+        return "Galeria"
 
 def upload_t(instance, filename):
     return 'galeria/%s/%s' % (instance.galeria.nombre, filename)

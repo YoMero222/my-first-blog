@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block header %}
+<title>Busqueda: {{request.GET.search}}</title>
+<meta property="og:title"              content="Busqueda: {{request.GET.search}}" />
+<meta property="og:description"        content="Un espacio para todos los melomanos" />
+<meta property="og:image"              content="{% static "jpg/logo.jpg" %}" />
+{% endblock %}
+
+{% block content %}
+  {% csrf_token %}
+  <div class="card-columns"">
+
+  {% for nota in resultado%}
+    {% if nota.tipo == 'Post' %}
+
+      <div class="card" style="width: 18rem;">
+        <a class="page-link" href="{% url 'post_detail' pk=nota.pk %}">
+
+            <h5 class="card-header">Noticia </h5>
+
+        <img class="card-img-top" src="{{ nota.imagen.url }}" alt="Card image cap" width="180" height="180">
+        <div class="card-body">
+          <h2>{{ nota.title }}</h2>
+          <p>{{ nota.published_date }}</p>
+          <p>Por: {{ nota.author }}</p>
+          <p class="card-text">{{ nota.descripcion|linebreaksbr }}</p>
+        </div>
+        </a>
+        <div class="card-footer">
+            <p class="card-text">Compartir en:</p>
+            <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'post_detail' pk=nota.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
+            <a href="https://twitter.com/share?url={{request.scheme}}://{{request.get_host}}{% url 'post_detail' pk=nota.pk %}" target="_blank"><img src="{% static "png/twitterShare.png" %}" alt="twitter" width="25" height="25"></a>
+            <a href="https://api.whatsapp.com/send?text={{request.scheme}}://{{request.get_host}}{% url 'post_detail' pk=nota.pk %}" target="_blank"><img src="{% static "png/whatsappShare.png" %}" alt="whatsapp" width="25" height="25"></a>
+
+        </div>
+      </div>
+    {%elif nota.tipo == 'Galeria' %}
+
+      <div class="card" style="width: 18rem;">
+        <a class="page-link" href="{% url 'galeria' pk=nota.pk %}">
+            <h5 class="card-header">Galeria </h5>
+          <img class="card-img-top" src="{{ nota.imagen.url }}"  alt="Card image cap" width="180" height="180">
+            <div class="card-body">
+              <h2>{{nota.nombre}}</h2>
+            </div>
+            </a>
+            <div class="card-footer">
+                <p class="card-text">Compartir en:</p>
+                <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'galeria' pk=nota.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
+                <a href="https://twitter.com/share?url={{request.scheme}}://{{request.get_host}}{% url 'galeria' pk=nota.pk %}" target="_blank"><img src="{% static "png/twitterShare.png" %}" alt="twitter" width="25" height="25"></a>
+                <a href="https://api.whatsapp.com/send?text={{request.scheme}}://{{request.get_host}}{% url 'galeria' pk=nota.pk %}" target="_blank"><img src="{% static "png/whatsappShare.png" %}" alt="whatsapp" width="25" height="25"></a>
+            </div>
+      </div>
+    {%endif%}
+    {%empty%}
+      <h2>No se encontraron resultados</h2>
+
+  {%endfor%}
+
+</div>
+
+
+<div class="row justify-content-center">
+  <ul class="pagination pagination-lg">
+    {%  for t in total_array %}
+    {% ifequal  t num %}
+      <li class="page-item active"><a class="page-link" href="/buscar/{{t}}/?search={{request.GET.search}}">{{t}}</a></li>
+
+    {% else %}
+      <li class="page-item"><a class="page-link" href="/buscar/{{t}}/?search={{request.GET.search}}">{{t}}</a></li>
+    {% endifequal %}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

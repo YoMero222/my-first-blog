@@ -7,4 +7,5 @@ urlpatterns = [
     path('galerias/<int:num>/', views.galerias, name='galerias'),
     path('galeria/<int:pk>/', views.galeria, name='galeria'),
     path('nosotros/', views.nosotros, name='nosotros'),
+    path('buscar/<int:num>/', views.buscar, name='buscar'),
 ]

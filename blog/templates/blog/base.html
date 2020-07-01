@@ -13,6 +13,9 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script>home=window.location.protocol+window.location.hostname</script>
+
         {% block header %}
         {% endblock %}
 
@@ -32,6 +35,13 @@
               <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galeria</a>
               <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
             </div>
+            <form class="navbar-form navbar-left" action="{% url 'buscar' num=1 %}" method="get">
+              <div class="form-check form-check-inline">
+                  {% csrf_token %}
+              <input type="search" class="form-control" placeholder="Buscar..." id="search" name="search"/>
+              <button class="btn-success btn-lg" ><i class="material-icons">search</i></button>
+              </div>
+            </form>
           </div>
         </nav>
         <div class="container-fluid" >

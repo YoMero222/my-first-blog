@@ -3,9 +3,14 @@ from .models import Post
 from .models import Integrantes
 from .models import Galeria
 from .models import ImagenEnGaleria
+from .forms import NameForm
+from django.db.models import Q
+from itertools import chain
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import *
 import math
+
 from array import array
 
 
@@ -17,6 +22,7 @@ def post_list(request):
 
 def nosotros(request):
     integrantes= Integrantes.objects.all
+
     return render(request, 'blog/nosotros.html',{"integrantes":integrantes})
 
 def post_detail(request, pk):
@@ -30,7 +36,7 @@ def noticias(request, num):
     total = Post.objects.count()
     ultima=math.ceil(total/p)
     total_array=[]
-    print(ultima)
+
     if num-3<=0:
         for x in range(1,ultima+1):
             total_array.append(x)
@@ -40,7 +46,7 @@ def noticias(request, num):
     else:
         for x in range(ultima-2,ultima+2):
             total_array.append(x)
-    print(total_array)
+
     return render(request, 'blog/noticias.html', {'posts':posts,'num':num,'total_array':total_array })
 
 def galerias(request, num):
@@ -50,7 +56,6 @@ def galerias(request, num):
     total = Galeria.objects.count()
     ultima=math.ceil(total/p)
     total_array=[]
-
     if num-3<=0:
         for x in range(1,ultima+1):
             total_array.append(x)
@@ -66,3 +71,36 @@ def galeria(request,pk):
     imagenes=ImagenEnGaleria.objects.filter(galeria=pk)
     nombre=Galeria.objects.filter(pk=pk)
     return render(request, 'blog/galeria.html',{'imagenes':imagenes,'nombre':nombre})
+
+def buscar(request, num):
+    n=int(num)
+    p=3
+    if request.method == 'GET':
+        busqueda = (request.GET.get("search"))
+        # check whether it's valid:
+    else:
+        busqueda = ''
+    resultadoPost=Post.objects.filter(Q(title__contains=busqueda)| Q(descripcion__contains=busqueda)  )
+    resultadoGaleria=Galeria.objects.filter(nombre__contains=busqueda)
+    resultadoCom=[]
+    for x in resultadoPost:
+        resultadoCom.append(x)
+    for x in resultadoGaleria:
+        resultadoCom.append(x)
+    paginas=Paginator(resultadoCom,p)
+    total = resultadoPost.count()+resultadoGaleria.count()
+    ultima=math.ceil(total/p)
+    total_array=[]
+    if num-3<=0:
+        for x in range(1,ultima+1):
+            total_array.append(x)
+    elif num+3>ultima:
+        for x in range(ultima-3,ultima+1):
+            total_array.append(x)
+    else:
+        for x in range(ultima-2,ultima+2):
+            total_array.append(x)
+    resultado=paginas.page(n)
+    print(paginas.count)
+    print(resultado.object_list)
+    return render(request,'blog/buscar.html',{'resultado':resultado,'total_array':total_array,'num':num})
