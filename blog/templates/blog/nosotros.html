@@ -15,7 +15,7 @@
   <h3> Equipo</h3>
 
   {%  for integrante in integrantes %}
-  <div class="card" style="width: 15rem;">
+  <div class="card" style="width: auto;">
     <img class="card-img-top" src="{{ integrante.imagenDePerfil.url }}"  alt="Card image cap" width="200" height="200">
     <div class="card-body">
       <h2>{{integrante.nombre}}</h2>
@@ -29,5 +29,5 @@
     </div>
   </div>
   {% endfor %}
-  
+
 {% endblock %}

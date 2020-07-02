@@ -12,7 +12,7 @@
 <h2>Galerias</h2>
 <div class="card-columns"">
   {%  for galeria in galerias %}
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: auto;">
     <a class="page-link" href="{% url 'galeria' pk=galeria.pk %}">
       <img class="card-img-top" src="{{ galeria.imagen.url }}"  alt="Card image cap" width="180" height="180">
         <div class="card-body">

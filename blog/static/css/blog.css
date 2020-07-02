@@ -10,8 +10,40 @@
 .page-pies {
     background-color: #243444;
     color: #ffffff;
+    padding-top: 20px;
+padding-right: 20px;
+padding-bottom: 20px;
+padding-left: 20px;
+position: absolute;
+
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  color: white;
 
 }
+
+
+
+.twtr-doc{
+  max-width: 100%;
+}
+
+.redes{
+  background-color:gray;
+  padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+
+margin-left: auto;
+ margin-right: auto;
+
+}
+
+
 
 .button {
   border: none;
@@ -42,6 +74,20 @@
 .img-responsive{
   max-width: 90%;
   height: auto;
+}
+
+.twitter-timeline{
+  max-width: 50%;
+  width: auto;
+
+  margin-top: 40px;
+}
+
+.fb-page{
+
+  width: auto;
+
+  margin-top: 40px;
 }
 
 .youtube {
@@ -85,9 +131,13 @@ h1, h2, h3 {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 
 .post h2 a, .post h2 a:visited {
     color: #000000;
+}
+.card{
+border:5px;
+
 }
