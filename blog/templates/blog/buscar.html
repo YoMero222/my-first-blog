@@ -23,9 +23,9 @@
         <img class="card-img-top" src="{{ nota.imagen.url }}" alt="Card image cap" width="180" height="180">
         <div class="card-body">
           <h2>{{ nota.title }}</h2>
-          <p>{{ nota.published_date }}</p>
-          <p>Por: {{ nota.author }}</p>
-          <p class="card-text">{{ nota.descripcion|linebreaksbr }}</p>
+          <p><i class="material-icons">calendar_today</i>{{ nota.published_date }}</p>
+          <p><i class="material-icons">account_circle</i>Por: {{ nota.author }}</p>
+          <p class="card-text"><i class="material-icons">info</i>{{ nota.descripcion|linebreaksbr }}</p>
         </div>
         </a>
         <div class="card-footer">
@@ -38,7 +38,7 @@
       </div>
     {%elif nota.tipo == 'Galeria' %}
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" >
         <a class="page-link" href="{% url 'galeria' pk=nota.pk %}">
             <h5 class="card-header">Galería </h5>
           <img class="card-img-top" src="{{ nota.imagen.url }}"  alt="Card image cap" width="180" height="180">
@@ -54,13 +54,17 @@
             </div>
       </div>
     {%endif%}
-    {%empty%}
-      <h2>No se encontraron resultados</h2>
+
 
   {%endfor%}
 
 </div>
-
+{% for nota in resultado%}
+{%empty%}
+  <div class="sinResultados">
+  <h2>No se encontraron resultados para la busqueda "{{request.GET.search}}"</h2>
+  </div>
+{%endfor%}
 
 <div class="row justify-content-center">
   <ul class="pagination pagination-lg">
