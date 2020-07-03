@@ -32,14 +32,14 @@
           <div class="container-fluid">
             <div class="navbar-header" id="myTopnav">
               <a class="navbar-brand" href="{% url 'noticias' num=1 %}">Noticias</a>
-              <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galeria</a>
+              <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galería</a>
               <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
             </div>
             <form class="navbar-form navbar-left" action="{% url 'buscar' num=1 %}" method="get">
               <div class="form-check form-check-inline">
                   {% csrf_token %}
               <input type="search" class="form-control" placeholder="Buscar..." id="search" name="search"/>
-              <button class="btn-success btn-lg" ><i class="material-icons">search</i></button>
+              <button class="btn-success btn-md" ><i class="material-icons">search</i></button>
               </div>
             </form>
           </div>

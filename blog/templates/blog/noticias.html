@@ -18,9 +18,9 @@
     <a class="page-link" href="{% url 'post_detail' pk=post.pk %}">
     <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
     <div class="card-body">
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.published_date }}</p>
-      <p>Por: {{ post.author }}</p>
+      <h2><i class="material-icons">calendar_today</i>{{ post.title }}</h2>
+      <p><i class="material-icons">account_circle</i>{{ post.published_date }}</p>
+      <p><i class="material-icons">info</i>Por: {{ post.author }}</p>
       <p class="card-text">{{ post.descripcion|linebreaksbr }}</p>
     </div>
     </a>

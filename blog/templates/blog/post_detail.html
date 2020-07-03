@@ -25,8 +25,9 @@
         </h2>
 
 
-        <img  src="{{ post.imagen.url }}"  width="780" height="380" class="img-responsive">
-
-        <p>{{ post.text|linebreaksbr }}</p>
+        <img  src="{{ post.imagen.url }}"  class="img-noticas">
+        <div class="noticia">
+        <p >{{ post.text|linebreaksbr }}</p>
+        </div>
     </div>
 {% endblock %}
