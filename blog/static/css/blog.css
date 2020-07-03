@@ -84,12 +84,12 @@ margin-left: auto;
   height: auto;
 }
 
-.carousel-inner{
-  max-width: 70%;
+.carousel{
+  max-width: 90%;
   height: auto;
-  padding-left: auto;
-  padding-right: auto;
-  padding-bottom: 20px;
+  border-left: auto;
+  border-right: auto;
+  padding-bottom: 150px;
 }
 
 .twitter-timeline{
@@ -114,7 +114,7 @@ margin-left: auto;
 }
 
 .inicio{
-  padding: 20px;
+  padding: 35px;
 }
 
 .img-noticas{

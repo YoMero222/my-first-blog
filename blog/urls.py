@@ -1,4 +1,7 @@
 from django.urls import path
+from django.conf.urls import url
+from django.contrib import admin
+
 from . import views
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -8,4 +11,5 @@ urlpatterns = [
     path('galeria/<int:pk>/', views.galeria, name='galeria'),
     path('nosotros/', views.nosotros, name='nosotros'),
     path('buscar/<int:num>/', views.buscar, name='buscar'),
+    url(r'^admin/', admin.site.urls),
 ]

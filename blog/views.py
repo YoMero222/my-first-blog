@@ -3,7 +3,7 @@ from .models import Post
 from .models import Integrantes
 from .models import Galeria
 from .models import ImagenEnGaleria
-from .forms import NameForm
+
 from django.db.models import Q
 from itertools import chain
 from django.utils import timezone

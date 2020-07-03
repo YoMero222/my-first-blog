@@ -32,7 +32,7 @@
           <div class="container-fluid">
             <div class="navbar-header" id="myTopnav">
               <a class="navbar-brand" href="{% url 'noticias' num=1 %}">Noticias</a>
-              <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galería</a>
+              <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galerías</a>
               <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
             </div>
             <form class="navbar-form navbar-left" action="{% url 'buscar' num=1 %}" method="get">
@@ -45,8 +45,10 @@
           </div>
         </nav>
         <div class="container-fluid" >
+          <div class="inicio">
                 {% block content %}
                 {% endblock %}
+              </div>
         </div>
 
         <div class="page-pies">
