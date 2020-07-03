@@ -15,7 +15,7 @@
   {% for nota in resultado%}
     {% if nota.tipo == 'Post' %}
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" >
         <a class="page-link" href="{% url 'post_detail' pk=nota.pk %}">
 
             <h5 class="card-header">Noticia </h5>
