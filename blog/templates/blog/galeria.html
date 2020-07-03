@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="inicio">
+
 {%  for n in nombre %}
 <h2>{{n}}
   <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'galeria' pk=n.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
@@ -46,6 +46,6 @@
   </a>
 </div>
 
-</div>
+
 </div>
 {% endblock %}
