@@ -22,28 +22,47 @@
     </head>
     <body>
         <div class="page-header">
-          <div class="container-fuild" align="center">
-            <a href="/">
-            <img  src="{% static "png/logo.png" %}" alt="Logo" class="img-responsive" >
-            </a>
-          </div>
+
         </div>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header" id="myTopnav">
-              <a class="navbar-brand" href="{% url 'noticias' num=1 %}">Noticias</a>
-              <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galerías</a>
-              <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
-            </div>
-            <form class="navbar-form navbar-left" action="{% url 'buscar' num=1 %}" method="get">
-              <div class="form-check form-check-inline">
-                  {% csrf_token %}
-              <input type="search" class="form-control" placeholder="Buscar..." id="search" name="search"/>
-              <button class="btn-success btn-md" ><i class="material-icons">search</i></button>
-              </div>
-            </form>
+
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+          <!-- Brand -->
+          <a class= "logoL" href="/">
+          <img  src="{% static "png/logo.png" %}" alt="Logo" class="img-responsive" ></img>
+          </a>
+
+          <!-- Toggler/collapsibe Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> </span>
+          </button>
+
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="collapsibleNavbar" align="right">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="navbar-brand" href="{% url 'noticias' num=1 %}">Noticias</a>
+              </li>
+              <li class="nav-item">
+                <a class="navbar-brand" href="{% url 'galerias' num=1 %}">Galerías</a>
+              </li>
+              <li class="nav-item">
+                <a class="navbar-brand" href="{% url 'nosotros' %}">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <form class="navbar-form" action="{% url 'buscar' num=1 %}" method="get">
+                  <div class="form-check form-check-inline">
+                      {% csrf_token %}
+                  <input type="search" class="form-control" placeholder="Buscar..." id="search" name="search"/>
+                  <button class="btn-success btn-md" ><i class="material-icons">search</i></button>
+                  </div>
+                </form>
+
+              </li>
+            </ul>
           </div>
         </nav>
+
         <div class="container-fluid" >
           <div class="inicio">
                 {% block content %}
