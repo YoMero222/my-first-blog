@@ -17,9 +17,7 @@
 .card-body {
   color: black;
 }
-.logoL{
-  margin-right: -160px;
-}
+
 
 
 .page-pies {
@@ -83,9 +81,15 @@ margin-left: auto;
     margin-left: 40px;
 }
 .img-responsive{
-  max-width: 60%;
+  max-width: 200px;
   height: auto;
 }
+.logoL{
+
+  max-width: 40%;
+  height: auto;
+}
+
 
 .carousel{
   max-width: 90%;
@@ -122,11 +126,10 @@ margin-left: auto;
 
 .img-noticas{
 
-  width: 60%;
+  width: 50%;
   height: auto;
 
-  margin-top: 25px;
-  margin-bottom: : : 25px;
+  margin: 25px;
 }
 
 h1, h2, h3 {
