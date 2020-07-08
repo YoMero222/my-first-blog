@@ -16,7 +16,7 @@
     {% if nota.tipo == 'Post' %}
 
       <div class="card" >
-        <a class="page-link" href="{% url 'post_detail' pk=nota.pk %}">
+        <a  href="{% url 'post_detail' pk=nota.pk %}">
 
             <h5 class="card-header">Noticia </h5>
 
@@ -62,7 +62,9 @@
 {% for nota in resultado%}
 {%empty%}
   <div class="sinResultados">
+    <div class ="titulo">
   <h2>No se encontraron resultados para la busqueda "{{request.GET.search}}"</h2>
+  </div>
   </div>
 {%endfor%}
 

@@ -15,7 +15,7 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
-        {% endif %}
+        {% endif %}<div class ="titulo">
         <h2>{{ post.title }}
           <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'post_detail' pk=post.pk %}" target="_blank"><img src="{% static "png/facebookShare.png" %}" alt="facebook" width="25" height="25"></a>
           <a href="https://twitter.com/share?url={{request.scheme}}://{{request.get_host}}{% url 'post_detail' pk=post.pk %}" target="_blank"><img src="{% static "png/twitterShare.png" %}" alt="twitter" width="25" height="25"></a>
@@ -23,6 +23,7 @@
 
 
         </h2>
+        </div>
 
 
         <img  src="{{ post.imagen.url }}"  class="img-noticas">

@@ -12,11 +12,13 @@
 
 {% block content %}
 <div class=noticias>
+  <div class ="titulo">
 <h2>Noticias</h2>
+</div>
 <div class="card-columns"">
 {%  for post in posts %}
   <div class="card" style="width: auto;">
-    <a class="page-link" href="{% url 'post_detail' pk=post.pk %}">
+    <a href="{% url 'post_detail' pk=post.pk %}">
     <img class="card-img-top" src="{{ post.imagen.url }}" alt="Card image cap" width="180" height="180">
     <div class="card-body">
       <h2>{{ post.title }}</h2>
